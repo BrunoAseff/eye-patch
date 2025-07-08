@@ -2,10 +2,17 @@
   "name": "eye-patch",
   "version": "1.0.0",
   "description": "A personal security and uptime watchdog for all my public-facing projects.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+      "main": "dist/index.js",
+      "scripts": {
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "dev": "ts-node src/index.ts"
+      },
   "author": "Bruno Aseff",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.0.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
 }
