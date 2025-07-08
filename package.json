@@ -1,0 +1,11 @@
+{
+  "name": "eye-patch",
+  "version": "1.0.0",
+  "description": "A personal security and uptime watchdog for all my public-facing projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bruno Aseff",
+  "license": "ISC"
+}
