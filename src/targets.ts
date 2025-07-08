@@ -1,10 +1,10 @@
-type target = {
+export type Target = {
     type: "api" | "web",
     name: string,
     url: string
 }
 
-export const targets: target[] = [
+export const targets: Target[] = [
     {
         type: "api", 
         name: "Flaira",
@@ -25,4 +25,4 @@ export const targets: target[] = [
         name: "Nova",
         url: "https://novaspaces.io"
     },
-]
+] as const;
