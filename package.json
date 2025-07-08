@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "ts-node src/index.ts"
+    "dev": "ts-node lambda/index.ts"
   },
   "author": "Bruno Aseff",
   "license": "ISC",
@@ -19,5 +19,8 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.36.0"
+  },
+  "dependencies": {
+    "aws-cdk": "^2.1020.2"
   }
 }
