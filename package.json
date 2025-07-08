@@ -2,17 +2,21 @@
   "name": "eye-patch",
   "version": "1.0.0",
   "description": "A personal security and uptime watchdog for all my public-facing projects.",
-      "main": "dist/index.js",
-      "scripts": {
-        "build": "tsc",
-        "start": "node dist/index.js",
-        "dev": "ts-node src/index.ts"
-      },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
   "author": "Bruno Aseff",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.30.1",
     "@types/node": "^24.0.11",
+    "eslint": "^9.30.1",
+    "globals": "^16.3.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.36.0"
   }
 }
