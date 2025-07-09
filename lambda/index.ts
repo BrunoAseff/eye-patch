@@ -1,8 +1,9 @@
-import { targets } from "./targets"
+import { targets } from "./targets";
 
-(async () => {
-    const responses = await Promise.all(
-        targets.map(target => fetch(target.url))
-    );
-    console.log(responses.map(response => response.status));
-})();
+export const handler = async () => {
+  const responses = await Promise.all(
+    targets.map(target => fetch(target.url))
+  );
+
+  console.log(responses.map(response => response.status));
+};
