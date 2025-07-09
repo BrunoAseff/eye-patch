@@ -7,3 +7,7 @@ export const handler = async () => {
 
   console.log(responses.map(response => response.status));
 };
+
+if (require.main === module) {
+  handler();
+}
