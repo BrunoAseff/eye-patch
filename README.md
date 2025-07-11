@@ -2,7 +2,7 @@
 
 Eye Patch is a personal security and uptime watchdog for all my public-facing projects.
 
-Every 15 minutes, a Lambda function runs to check if each service is responding as expected. If something is down, it sends an email alert.
+Every 15 minutes, a Lambda function runs to check if each service is responding as expected. If something is down, the system sends an email alert.
 
 ---
 
@@ -10,9 +10,9 @@ Every 15 minutes, a Lambda function runs to check if each service is responding 
 
 The entire infrastructure is managed using **AWS CDK**.
 
-### Services used:
+### Services used
 
-- **AWS Lambda** – runs the monitoring logic
-- **SNS (Simple Notification Service)** – sends email alerts
-- **EventBridge** – triggers the Lambda on a fixed schedule
-- **CDK (Cloud Development Kit)** – provisions everything as code
+- **AWS Lambda**: runs the monitoring logic
+- **SNS (Simple Notification Service)**: sends email alerts
+- **EventBridge**: triggers the Lambda on a fixed schedule
+- **CDK (Cloud Development Kit)**: provisions everything as code
