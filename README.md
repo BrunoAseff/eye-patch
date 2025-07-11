@@ -16,3 +16,6 @@ The entire infrastructure is managed using **AWS CDK**.
 - **SNS (Simple Notification Service)**: sends email alerts
 - **EventBridge**: triggers the Lambda on a fixed schedule
 - **CDK (Cloud Development Kit)**: provisions everything as code
+  
+
+<img width="652" height="672" alt="eyepatch" src="https://github.com/user-attachments/assets/61139bf3-1771-45b5-946b-6aaac219ceea" />
