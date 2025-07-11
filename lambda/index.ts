@@ -5,7 +5,7 @@ export const handler = async () => {
     targets.map(target => fetch(target.url))
   );
 
-  console.log(responses.map(response => response.status));
+  return responses.map(response => response.status);
 };
 
 if (require.main === module) {
