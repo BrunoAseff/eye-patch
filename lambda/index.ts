@@ -17,7 +17,7 @@ async function generateEmail() {
   const result = await checkHealth();
 
   return result.map((response, index) =>
-    Number(response) === 200 ? Email({ target: targets[index] }) : null,
+    Number(response) !== 200 ? Email({ target: targets[index] }) : null,
   );
 }
 
