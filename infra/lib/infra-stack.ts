@@ -17,7 +17,7 @@ export class InfraStack extends cdk.Stack {
     alertTopic.addSubscription(new subs.EmailSubscription(alertEmail));
 
     const lambdaFunction = new lambda.Function(this, 'EyePatchFunction', {
-      runtime: lambda.Runtime.NODEJS_18_X,
+      runtime: lambda.Runtime.NODEJS_20_X,
       code: lambda.Code.fromAsset('../dist'),
       handler: 'index.handler',
       environment: {
