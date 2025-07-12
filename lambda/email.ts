@@ -1,6 +1,12 @@
 import type { Target } from './targets';
 
-export function Email({ target }: { target: Target }) {
+type EmailData = {
+  target: Target;
+  httpStatus?: number | null;
+  error?: Error | null;
+};
+
+export function Email({ target, httpStatus, error }: EmailData) {
   const now = new Date();
   const formattedDate = now.toLocaleString('pt-BR', {
     day: '2-digit',
@@ -13,12 +19,14 @@ export function Email({ target }: { target: Target }) {
   });
 
   return `
-    ${target.name} esta fora do ar!
+${target.name} está fora do ar.
 
-    Tipo: ${target.type}
-    Nome: ${target.name}
-    Url: ${target.url}
-    Data: ${formattedDate}
+Tipo: ${target.type}
+Nome: ${target.name}
+URL: ${target.url}
+Data: ${formattedDate}
 
-    `;
+${httpStatus ? `Status HTTP: ${httpStatus}` : ''}
+${error ? `Erro: ${typeof error === 'string' ? error : JSON.stringify(error)}` : ''}
+`.trim();
 }
