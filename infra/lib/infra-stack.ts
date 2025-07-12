@@ -23,6 +23,7 @@ export class InfraStack extends cdk.Stack {
       environment: {
         TOPIC_ARN: alertTopic.topicArn,
       },
+      timeout: cdk.Duration.seconds(10),
     });
 
     alertTopic.grantPublish(lambdaFunction);
