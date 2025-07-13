@@ -86,15 +86,17 @@ async function sendEmail(): Promise<void> {
   }
 
   await Promise.all(
-    emailsToSend.filter(Boolean).map((email: string | null) =>
-      sns.send(
-        new PublishCommand({
-          TopicArn: topicArn,
-          Subject: 'EyePatch - Alerta de Status',
-          Message: email!,
-        }),
+    emailsToSend
+      .filter((email): email is string => email !== null)
+      .map((email) =>
+        sns.send(
+          new PublishCommand({
+            TopicArn: topicArn,
+            Subject: 'EyePatch - Alerta de Status',
+            Message: email,
+          }),
+        ),
       ),
-    ),
   );
 
   console.log(`E-mails enviados: ${emailsToSend.filter(Boolean).length}`);
