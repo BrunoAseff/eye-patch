@@ -26,7 +26,10 @@ export async function checkHealth(): Promise<HealthCheckResult[]> {
           target,
           status: 'rejected',
           httpStatus: null,
-          error: res.reason,
+          error:
+            res.reason instanceof Error
+              ? res.reason
+              : new Error(String(res.reason)),
         };
       }
     },
