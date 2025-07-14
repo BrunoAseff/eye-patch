@@ -1,13 +1,13 @@
 import { targets } from '../targets';
-import type { HealthCheckResult, PromiseSettledResult, Target } from '../types';
+import type { HealthCheckResult, Target } from '../types';
 
 export async function checkHealth(): Promise<HealthCheckResult[]> {
-  const results: PromiseSettledResult[] = await Promise.allSettled(
+  const results: PromiseSettledResult<Response>[] = await Promise.allSettled(
     targets.map((target: Target) => fetch(target.url)),
   );
 
   const responses: HealthCheckResult[] = results.map(
-    (res: PromiseSettledResult, index: number) => {
+    (res: PromiseSettledResult<Response>, index: number) => {
       const target: Target = targets[index];
 
       if (res.status === 'fulfilled') {

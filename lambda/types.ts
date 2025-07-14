@@ -10,16 +10,6 @@ export interface HealthCheckResult {
   httpStatus: number | null;
   error: Error | null;
 }
-export interface FulfilledResult {
-  status: 'fulfilled';
-  value: Response;
-}
-export interface RejectedResult {
-  status: 'rejected';
-  reason: Error;
-}
-
-export type PromiseSettledResult = FulfilledResult | RejectedResult;
 
 export type EmailData = {
   target: Target;
