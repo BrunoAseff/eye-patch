@@ -1,10 +1,4 @@
-import type { Target } from './targets';
-
-type EmailData = {
-  target: Target;
-  httpStatus?: number | null;
-  error?: Error | null;
-};
+import type { EmailData } from './types';
 
 export function Email({ target, httpStatus, error }: EmailData) {
   const now = new Date();

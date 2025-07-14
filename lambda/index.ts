@@ -1,25 +1,7 @@
 import { Email } from './email';
-import { Target, targets } from './targets';
+import { targets } from './targets';
 import { SNSClient, PublishCommand } from '@aws-sdk/client-sns';
-
-interface HealthCheckResult {
-  target: Target;
-  status: 'fulfilled' | 'rejected';
-  httpStatus: number | null;
-  error: Error | null;
-}
-
-interface FulfilledResult {
-  status: 'fulfilled';
-  value: Response;
-}
-
-interface RejectedResult {
-  status: 'rejected';
-  reason: Error;
-}
-
-type PromiseSettledResult = FulfilledResult | RejectedResult;
+import type { HealthCheckResult, PromiseSettledResult, Target } from './types';
 
 const sns = new SNSClient();
 const topicArn: string | undefined = process.env.TOPIC_ARN;

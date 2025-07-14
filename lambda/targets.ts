@@ -1,8 +1,4 @@
-export type Target = {
-  type: 'api' | 'web';
-  name: string;
-  url: string;
-};
+import type { Target } from './types';
 
 export const targets: Target[] = [
   {
