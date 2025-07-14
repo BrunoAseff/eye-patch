@@ -1,44 +1,10 @@
 import { Email } from './email';
-import { targets } from './targets';
 import { SNSClient, PublishCommand } from '@aws-sdk/client-sns';
-import type { HealthCheckResult, PromiseSettledResult, Target } from './types';
+import type { HealthCheckResult } from './types';
+import { checkHealth } from './checks/checkHealth';
 
 const sns = new SNSClient();
 const topicArn: string | undefined = process.env.TOPIC_ARN;
-
-async function checkHealth(): Promise<HealthCheckResult[]> {
-  const results: PromiseSettledResult[] = await Promise.allSettled(
-    targets.map((target: Target) => fetch(target.url)),
-  );
-
-  const responses: HealthCheckResult[] = results.map(
-    (res: PromiseSettledResult, index: number) => {
-      const target: Target = targets[index];
-
-      if (res.status === 'fulfilled') {
-        console.log(
-          `[OK] ${target.name} - ${target.url} -> ${res.value.status}`,
-        );
-        return {
-          target,
-          status: 'fulfilled',
-          httpStatus: res.value.status,
-          error: null,
-        };
-      } else {
-        console.error(`[FAIL] ${target.name} - ${target.url} -> ${res.reason}`);
-        return {
-          target,
-          status: 'rejected',
-          httpStatus: null,
-          error: res.reason,
-        };
-      }
-    },
-  );
-
-  return responses;
-}
 
 async function generateEmail(
   results: HealthCheckResult[],
