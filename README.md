@@ -6,6 +6,19 @@ Every 15 minutes, a Lambda function runs to check if each service is responding 
 
 ---
 
+| Name                                      | Type         | Status                                                   | Endpoint                         |
+| :---------------------------------------- | :----------- | :------------------------------------------------------- | :------------------------------- |
+| [Flaira API](https://api.flaira.net)      | API Service  | ![status](https://img.shields.io/badge/operational-green) | `https://api.flaira.net/status` |
+| [Flaira](https://flaira.net)              | Web Service  | ![status](https://img.shields.io/badge/operational-green) | `https://flaira.net`            |
+| [Portfólio](https://brunoaseff.com.br)    | Web Service  | ![status](https://img.shields.io/badge/operational-green) | `https://brunoaseff.com.br`     |
+| [Nova](https://novaspaces.io)             | Web Service  | ![status](https://img.shields.io/badge/operational-green) | `https://novaspaces.io`         |
+
+## Last Updated
+
+⏰ **Last Check:** ` `
+
+---
+
 ## Architecture
 
 The entire infrastructure is managed using **AWS CDK**.
