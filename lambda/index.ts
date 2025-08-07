@@ -2,6 +2,7 @@ import { Email } from './email';
 import { SNSClient, PublishCommand } from '@aws-sdk/client-sns';
 import type { HealthCheckResult } from './types';
 import { checkHealth } from './checks/checkHealth';
+import { updateBadges } from './badges';
 
 const sns = new SNSClient();
 const topicArn: string | undefined = process.env.TOPIC_ARN;
@@ -23,6 +24,8 @@ async function generateEmail(
 async function sendEmail(): Promise<void> {
   const results: HealthCheckResult[] = await checkHealth();
   const emailsToSend: (string | null)[] = await generateEmail(results);
+
+  await updateBadges(results);
 
   if (!emailsToSend || emailsToSend.every((e: string | null) => e === null)) {
     console.log('Nenhuma falha detectada. Nenhum e-mail enviado.');

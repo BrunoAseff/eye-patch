@@ -1,4 +1,5 @@
 export type Target = {
+  label: string;
   type: 'api' | 'web';
   name: string;
   url: string;
