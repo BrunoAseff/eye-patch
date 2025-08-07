@@ -25,6 +25,8 @@ async function sendEmail(): Promise<void> {
   const results: HealthCheckResult[] = await checkHealth();
   const emailsToSend: (string | null)[] = await generateEmail(results);
 
+  await updateBadges(results);
+
   if (!emailsToSend || emailsToSend.every((e: string | null) => e === null)) {
     console.log('Nenhuma falha detectada. Nenhum e-mail enviado.');
     return;
@@ -47,8 +49,6 @@ async function sendEmail(): Promise<void> {
         ),
       ),
   );
-
-  await updateBadges(results);
 
   console.log(`E-mails enviados: ${emailsToSend.filter(Boolean).length}`);
 }
