@@ -6,6 +6,7 @@ import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as events from 'aws-cdk-lib/aws-events';
 import * as targets from 'aws-cdk-lib/aws-events-targets';
 import * as s3 from 'aws-cdk-lib/aws-s3';
+import * as iam from 'aws-cdk-lib/aws-iam';
 
 export class InfraStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -47,6 +48,15 @@ export class InfraStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
     });
+
+    badgeBucket.addToResourcePolicy(
+      new iam.PolicyStatement({
+        actions: ['s3:GetObject'],
+        resources: [`${badgeBucket.bucketArn}/badges/*`],
+        principals: [new iam.AnyPrincipal()],
+        effect: iam.Effect.ALLOW,
+      }),
+    );
 
     badgeBucket.grantPut(lambdaFunction);
     badgeBucket.grantRead(lambdaFunction);
