@@ -25,7 +25,6 @@ export async function updateBadges(results: HealthCheckResult[]) {
         Key: key,
         Body: JSON.stringify(badge),
         ContentType: 'application/json',
-        ACL: 'public-read',
       }),
     );
 
