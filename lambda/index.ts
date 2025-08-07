@@ -2,6 +2,7 @@ import { Email } from './email';
 import { SNSClient, PublishCommand } from '@aws-sdk/client-sns';
 import type { HealthCheckResult } from './types';
 import { checkHealth } from './checks/checkHealth';
+import { updateBadges } from './badges';
 
 const sns = new SNSClient();
 const topicArn: string | undefined = process.env.TOPIC_ARN;
@@ -46,6 +47,8 @@ async function sendEmail(): Promise<void> {
         ),
       ),
   );
+
+  await updateBadges(results);
 
   console.log(`E-mails enviados: ${emailsToSend.filter(Boolean).length}`);
 }
