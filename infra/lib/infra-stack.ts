@@ -5,6 +5,7 @@ import * as sns from 'aws-cdk-lib/aws-sns';
 import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as events from 'aws-cdk-lib/aws-events';
 import * as targets from 'aws-cdk-lib/aws-events-targets';
+import * as s3 from 'aws-cdk-lib/aws-s3';
 
 export class InfraStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -33,5 +34,23 @@ export class InfraStack extends cdk.Stack {
     });
 
     rule.addTarget(new targets.LambdaFunction(lambdaFunction));
+
+    const badgeBucket = new s3.Bucket(this, 'EyePatchStatus', {
+      publicReadAccess: true,
+      blockPublicAccess: new s3.BlockPublicAccess({
+        blockPublicAcls: false,
+        blockPublicPolicy: false,
+        ignorePublicAcls: false,
+        restrictPublicBuckets: false,
+      }),
+      websiteIndexDocument: 'index.html',
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
+    });
+
+    badgeBucket.grantPut(lambdaFunction);
+    badgeBucket.grantRead(lambdaFunction);
+
+    lambdaFunction.addEnvironment('BADGE_BUCKET', badgeBucket.bucketName);
   }
 }
