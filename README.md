@@ -21,9 +21,10 @@ The entire infrastructure is managed using **AWS CDK**.
 
 ### Services used
 
-- **AWS Lambda**: runs the monitoring logic
+- **Lambda**: runs the monitoring logic and updates the status JSON files in S3 used by the shields.io badges
 - **SNS (Simple Notification Service)**: sends email alerts
-- **EventBridge**: triggers the Lambda on a fixed schedule
+- **EventBridge**: triggers the Lambda on a fixed schedule (every 15 minutes)
+- **S3 (Simple Storage Service)**: stores the JSON files consumed by the status badges
 - **CDK (Cloud Development Kit)**: provisions everything as code
 
 <img width="652" height="672" alt="eyepatch" src="https://github.com/user-attachments/assets/61139bf3-1771-45b5-946b-6aaac219ceea" />
