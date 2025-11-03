@@ -2,16 +2,22 @@ import type { Target } from './types';
 
 export const targets: Target[] = [
   {
-    label: 'flaira-api',
-    type: 'api',
-    name: 'Flaira',
-    url: 'https://api.flaira.net/status',
+    label: 'bolhas',
+    type: 'web',
+    name: 'Bolhas na Mão',
+    url: 'https://bolhas.org',
   },
   {
-    label: 'flaira-web',
+    label: 'ecosystem',
     type: 'web',
-    name: 'Flaira',
-    url: 'https://flaira.net',
+    name: 'Simulador de Ecossistema',
+    url: 'https://ecosystem.bolhas.org',
+  },
+  {
+    label: 'game-of-life',
+    type: 'web',
+    name: 'Jogo da Vida',
+    url: 'https://gameoflife.bolhas.org',
   },
   {
     label: 'portfolio',
