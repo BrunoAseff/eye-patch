@@ -29,6 +29,6 @@ export const targets: Target[] = [
     label: 'nova',
     type: 'web',
     name: 'Nova',
-    url: 'https://novaspaces.io',
+    url: 'https://nova-pied-omega.vercel.app',
   },
 ] as const;
