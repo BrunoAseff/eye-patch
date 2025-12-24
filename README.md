@@ -8,10 +8,11 @@ Every 15 minutes, a Lambda function runs to check if each service is responding 
 
 | Name                                   | Type        | Status                                                                                                                                        | Endpoint                        |
 | :------------------------------------- | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------ |
-| [Flaira API](https://api.flaira.net)   | API Service | ![status](https://img.shields.io/endpoint?url=https://infrastack-eyepatchstatus71821403-lxzepwy2kjx2.s3.amazonaws.com/badges/flaira-api.json) | `https://api.flaira.net/status` |
-| [Flaira](https://flaira.net)           | Web Service | ![status](https://img.shields.io/endpoint?url=https://infrastack-eyepatchstatus71821403-lxzepwy2kjx2.s3.amazonaws.com/badges/flaira-web.json) | `https://flaira.net`            |
+| [Bolhas na Mão](https://bolhas.org)   | Web Service | ![status](https://img.shields.io/endpoint?url=https://infrastack-eyepatchstatus71821403-lxzepwy2kjx2.s3.amazonaws.com/badges/bolhas.json) | `https://bolhas.org` |
+| [Simulador de Ecossistema](https://ecosystem.bolhas.org) | Web Service | ![status](https://img.shields.io/endpoint?url=https://infrastack-eyepatchstatus71821403-lxzepwy2kjx2.s3.amazonaws.com/badges/ecosystem.json) | `https://ecosystem.bolhas.org` |
+| [Jogo da Vida](https://gameoflife.bolhas.org) | Web Service | ![status](https://img.shields.io/endpoint?url=https://infrastack-eyepatchstatus71821403-lxzepwy2kjx2.s3.amazonaws.com/badges/game-of-life.json) | `https://gameoflife.bolhas.org` |
 | [Portfólio](https://brunoaseff.com.br) | Web Service | ![status](https://img.shields.io/endpoint?url=https://infrastack-eyepatchstatus71821403-lxzepwy2kjx2.s3.amazonaws.com/badges/portfolio.json)  | `https://brunoaseff.com.br`     |
-| [Nova](https://novaspaces.io)          | Web Service | ![status](https://img.shields.io/endpoint?url=https://infrastack-eyepatchstatus71821403-lxzepwy2kjx2.s3.amazonaws.com/badges/nova.json)       | `https://novaspaces.io`         |
+| [Nova](https://nova-pied-omega.vercel.app)          | Web Service | ![status](https://img.shields.io/endpoint?url=https://infrastack-eyepatchstatus71821403-lxzepwy2kjx2.s3.amazonaws.com/badges/nova.json)       | `https://nova-pied-omega.vercel.app`         |
 
 ---
 
@@ -21,9 +22,10 @@ The entire infrastructure is managed using **AWS CDK**.
 
 ### Services used
 
-- **AWS Lambda**: runs the monitoring logic
+- **Lambda**: runs the monitoring logic and updates the status JSON files in S3 used by the shields.io badges
 - **SNS (Simple Notification Service)**: sends email alerts
-- **EventBridge**: triggers the Lambda on a fixed schedule
+- **EventBridge**: triggers the Lambda on a fixed schedule (every 15 minutes)
+- **S3 (Simple Storage Service)**: stores the JSON files consumed by the status badges
 - **CDK (Cloud Development Kit)**: provisions everything as code
 
 <img width="652" height="672" alt="eyepatch" src="https://github.com/user-attachments/assets/61139bf3-1771-45b5-946b-6aaac219ceea" />
