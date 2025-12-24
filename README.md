@@ -12,7 +12,7 @@ Every 15 minutes, a Lambda function runs to check if each service is responding 
 | [Simulador de Ecossistema](https://ecosystem.bolhas.org) | Web Service | ![status](https://img.shields.io/endpoint?url=https://infrastack-eyepatchstatus71821403-lxzepwy2kjx2.s3.amazonaws.com/badges/ecosystem.json) | `https://ecosystem.bolhas.org` |
 | [Jogo da Vida](https://gameoflife.bolhas.org) | Web Service | ![status](https://img.shields.io/endpoint?url=https://infrastack-eyepatchstatus71821403-lxzepwy2kjx2.s3.amazonaws.com/badges/game-of-life.json) | `https://gameoflife.bolhas.org` |
 | [Portfólio](https://brunoaseff.com.br) | Web Service | ![status](https://img.shields.io/endpoint?url=https://infrastack-eyepatchstatus71821403-lxzepwy2kjx2.s3.amazonaws.com/badges/portfolio.json)  | `https://brunoaseff.com.br`     |
-| [Nova](https://novaspaces.io)          | Web Service | ![status](https://img.shields.io/endpoint?url=https://infrastack-eyepatchstatus71821403-lxzepwy2kjx2.s3.amazonaws.com/badges/nova.json)       | `https://novaspaces.io`         |
+| [Nova](https://nova-pied-omega.vercel.app)          | Web Service | ![status](https://img.shields.io/endpoint?url=https://infrastack-eyepatchstatus71821403-lxzepwy2kjx2.s3.amazonaws.com/badges/nova.json)       | `https://nova-pied-omega.vercel.app`         |
 
 ---
 
